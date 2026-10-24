@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}Dashboard{% endblock %}{% block content %}
+<div class="heading"><div><p class="eyebrow">OVERVIEW</p><h1>Dashboard</h1><p>Summary of blood bank records.</p></div><a class="btn" href="{{ url_for('persons') }}">Add person</a></div>
+<div class="stats"><div><p>Persons</p><strong>{{ stats.persons }}</strong></div><div><p>Donations</p><strong>{{ stats.donations }}</strong></div><div><p>Requests</p><strong>{{ stats.requests }}</strong></div><div><p>Total stock</p><strong>{{ stats.stock }} mL</strong></div></div>
+<div class="panel"><h2>Blood stock</h2><div class="groups">{% for s in stock %}<div><b>{{ s.blood_group }}</b><p>{{ s.quantity_ml }} mL</p></div>{% endfor %}</div><a href="{{ url_for('stock_page') }}">View stock details →</a></div>
+<div class="panel"><h2>Recent donations</h2><div class="tablewrap"><table><tr><th>Person</th><th>Group</th><th>Date</th><th>Quantity</th></tr>{% for d in recent %}<tr><td>{{ d.name }}</td><td>{{ d.blood_group }}</td><td>{{ d.donation_date }}</td><td>{{ d.quantity_ml }} mL</td></tr>{% endfor %}</table></div></div>
+<p class="note">Academic demo only; clinical compatibility and eligibility are not checked.</p>{% endblock %}

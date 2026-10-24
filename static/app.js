@@ -1,0 +1,1 @@
+function filterTable(){const i=document.getElementById('search'),t=document.getElementById('data');if(!i||!t)return;const q=i.value.toLowerCase();t.querySelectorAll('tr:not(:first-child)').forEach(r=>r.style.display=r.innerText.toLowerCase().includes(q)?'':'none')}
